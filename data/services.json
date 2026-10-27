@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "title": "Iron Works & Fabrication",
+        "description": "Custom steel fabrication, gates, railings, structural frames, industrial metal works with precision welding and finishing.",
+        "icon": "fa-industry",
+        "sort_order": 1,
+        "is_active": 1
+    },
+    {
+        "id": 2,
+        "title": "Advertising & Signage",
+        "description": "LED boards, 3D letters, billboards, vehicle branding, shop fronts and complete outdoor advertising solutions.",
+        "icon": "fa-ad",
+        "sort_order": 2,
+        "is_active": 1
+    },
+    {
+        "id": 3,
+        "title": "Construction Services",
+        "description": "Residential, commercial and industrial construction, renovations, structural works and project management.",
+        "icon": "fa-hard-hat",
+        "sort_order": 3,
+        "is_active": 1
+    },
+    {
+        "id": 4,
+        "title": "Architectural Metal Design",
+        "description": "Designer staircases, balconies, canopies, pergolas and modern metal architectural elements.",
+        "icon": "fa-drafting-compass",
+        "sort_order": 4,
+        "is_active": 1
+    },
+    {
+        "id": 5,
+        "title": "Powder Coating & Finishing",
+        "description": "Durable powder coating, anti-rust treatment and premium finishes for long-lasting protection.",
+        "icon": "fa-spray-can",
+        "sort_order": 5,
+        "is_active": 1
+    },
+    {
+        "id": 6,
+        "title": "Installation & Maintenance",
+        "description": "Professional on-site installation, repairs and maintenance services for all our products.",
+        "icon": "fa-tools",
+        "sort_order": 6,
+        "is_active": 1
+    }
+]
