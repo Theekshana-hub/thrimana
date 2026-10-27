@@ -47,11 +47,10 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
             </a>
             
             <ul class="nav-menu" id="nav-menu">
-<<<<<<< HEAD
-                <li><a href="index.php" class="<?php echo $current_page == 'index' ? 'active' : ''; ?>">Home1</a></li>
-=======
+
+            
                 <li><a href="index.php" class="<?php echo $current_page == 'index' ? 'active' : ''; ?>">Home</a></li>
->>>>>>> 310a586e08d98d2eb59b8fa89857d848f84dca62
+
                 <li><a href="about.php" class="<?php echo $current_page == 'about' ? 'active' : ''; ?>">About</a></li>
                 <li><a href="services.php" class="<?php echo $current_page == 'services' ? 'active' : ''; ?>">Services</a></li>
                 <li><a href="gallery.php" class="<?php echo $current_page == 'gallery' ? 'active' : ''; ?>">Gallery</a></li>
