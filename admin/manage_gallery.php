@@ -3,7 +3,6 @@ require_once 'auth_check.php';
 $success = '';
 $error = '';
 $uploadDir = __DIR__ . '/../assets/uploads/';
-
 if (!is_dir($uploadDir)) mkdir($uploadDir, 0755, true);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -62,6 +61,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 $gallery = getGallery();
+
+// Load active services to use as categories
+$services = readJson('services.json');
+usort($services, function($a, $b) {
+    return ($a['sort_order'] ?? 0) <=> ($b['sort_order'] ?? 0);
+});
+
+// Keep only active services
+$activeServices = array_filter($services, function($s) {
+    return !empty($s['is_active']);
+});
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,11 +105,20 @@ $gallery = getGallery();
                     </div>
                     <div class="form-group">
                         <label>Category</label>
-                        <select name="category">
-                            <option value="iron-works">Iron Works</option>
-                            <option value="advertising">Advertising</option>
-                            <option value="construction">Construction</option>
-                            <option value="general">General</option>
+                        <select name="category" required>
+                            <?php if (empty($activeServices)): ?>
+                                <option value="general">General</option>
+                            <?php else: ?>
+                                <?php foreach ($activeServices as $service): 
+                                    // Create a clean slug from the service title
+                                    $slug = strtolower(trim(preg_replace('/[^a-zA-Z0-9]+/', '-', $service['title']), '-'));
+                                ?>
+                                    <option value="<?php echo htmlspecialchars($slug); ?>">
+                                        <?php echo htmlspecialchars($service['title']); ?>
+                                    </option>
+                                <?php endforeach; ?>
+                                <option value="general">General</option>
+                            <?php endif; ?>
                         </select>
                     </div>
                     <div class="form-group">
