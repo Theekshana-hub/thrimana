@@ -2,6 +2,178 @@
    THRIMANA / RUHUNU IRON WORKS - Premium CSS
    Dark theme with gold accents matching logo
    ============================================ */
+   /* =========================================================
+   Thrimana - Responsive overrides
+   Load this AFTER your main style.css
+   ========================================================= */
+
+/* ---------- Base safety ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { max-width: 100%; overflow-x: hidden; }
+img { max-width: 100%; height: auto; }
+
+/* ---------- Classes replacing old inline styles ---------- */
+.section-tinted {
+    background: linear-gradient(180deg, transparent, rgba(245, 184, 0, 0.03), transparent);
+}
+
+.section-action {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.about-logo {
+    display: block;
+    border-radius: 50%;
+    width: 80%;
+    max-width: 420px;
+    margin: 0 auto;
+    box-shadow: 0 0 80px rgba(245, 184, 0, 0.2);
+}
+
+.about-action { margin-top: 30px; }
+
+.gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 220px;
+    background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+.gallery-placeholder i    { font-size: 2.5rem; color: #444; }
+.gallery-placeholder span { font-size: 0.9rem; color: #666; }
+
+/* ---------- Large tablets / small laptops (<= 1024px) ---------- */
+@media (max-width: 1024px) {
+    .container { padding-left: 24px; padding-right: 24px; }
+
+    .hero-content { gap: 40px; }
+
+    .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .gallery-grid  { grid-template-columns: repeat(2, 1fr); }
+
+    .about-grid { gap: 40px; }
+}
+
+/* ---------- Tablets (<= 768px) ---------- */
+@media (max-width: 768px) {
+    .section { padding: 60px 0; }
+    .section-header { margin-bottom: 36px; }
+    .section-header h2 { font-size: 1.8rem; }
+
+    /* Hero: stack, text first then logo */
+    .hero { min-height: auto; padding: 100px 0 60px; }
+    .hero-content {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+    .hero-text   { width: 100%; }
+    .hero-text h1 { font-size: clamp(2rem, 8vw, 3rem); line-height: 1.15; }
+    .hero-text .subtitle { font-size: 1rem; margin-left: auto; margin-right: auto; }
+    .hero-buttons { justify-content: center; flex-wrap: wrap; }
+    .hero-visual  { width: 100%; display: flex; justify-content: center; }
+    .hero-logo-wrapper { max-width: 260px; margin: 0 auto; }
+    .hero-logo { width: 100%; }
+
+    /* Stats in a row of 3 */
+    .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 32px;
+    }
+    .stat-number { font-size: 1.8rem; }
+    .stat-label  { font-size: 0.8rem; }
+
+    /* Services */
+    .services-grid { gap: 20px; }
+
+    /* About: stack */
+    .about-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        text-align: center;
+    }
+    .about-image   { width: 100%; }
+    .about-content { width: 100%; }
+    .about-features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        text-align: left;
+    }
+
+    /* Gallery overlay always visible on touch devices */
+    .gallery-overlay { opacity: 1; transform: none; }
+
+    /* CTA */
+    .cta-section { padding: 60px 0; text-align: center; }
+    .cta-section h2 { font-size: 1.7rem; }
+
+    .section-action { margin-top: 32px; }
+}
+
+/* ---------- Phones (<= 480px) ---------- */
+@media (max-width: 480px) {
+    .container { padding-left: 16px; padding-right: 16px; }
+
+    .section { padding: 48px 0; }
+    .section-header h2 { font-size: 1.5rem; }
+    .section-header p  { font-size: 0.95rem; }
+
+    .hero { padding: 90px 0 48px; }
+
+    /* Full-width buttons */
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+    }
+    .btn { width: 100%; justify-content: center; text-align: center; }
+    .section-action .btn,
+    .about-action .btn,
+    .cta-section .btn { width: 100%; max-width: 320px; }
+
+    .hero-logo-wrapper { max-width: 200px; }
+
+    .hero-stats { gap: 8px; }
+    .stat-number { font-size: 1.5rem; }
+    .stat-label  { font-size: 0.7rem; }
+
+    /* Single column grids */
+    .services-grid,
+    .gallery-grid { grid-template-columns: 1fr; gap: 16px; }
+
+    .service-card { padding: 24px 20px; }
+
+    .about-features { grid-template-columns: 1fr; }
+    .about-logo { width: 65%; }
+
+    .gallery-item { aspect-ratio: 4 / 3; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery-placeholder { min-height: 200px; }
+
+    .cta-section h2 { font-size: 1.4rem; }
+    .cta-section p  { font-size: 0.95rem; }
+}
+
+/* ---------- Very small phones (<= 360px) ---------- */
+@media (max-width: 360px) {
+    .hero-text h1 { font-size: 1.8rem; }
+    .stat-number  { font-size: 1.3rem; }
+}
+
+/* ---------- Respect reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
 
 :root {
     --primary: #f5b800;

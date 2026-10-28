@@ -1,1 +1,16 @@
-[]
+[
+    {
+        "id": 1,
+        "title": "",
+        "category": "iron-works",
+        "image_path": "gallery_1793093609_279.jpeg",
+        "created_at": "2026-10-27 09:33:29"
+    },
+    {
+        "id": 2,
+        "title": "",
+        "category": "advertising",
+        "image_path": "gallery_1793093619_872.jpeg",
+        "created_at": "2026-10-27 09:33:39"
+    }
+]

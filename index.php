@@ -16,7 +16,7 @@ $gallery = getGallery(6);
         <div class="shape shape-2"></div>
         <div class="shape shape-3"></div>
     </div>
-    
+
     <div class="container">
         <div class="hero-content">
             <div class="hero-text" data-aos="fade-right">
@@ -35,7 +35,7 @@ $gallery = getGallery(6);
                         <i class="fas fa-phone-alt"></i> Get a Quote
                     </a>
                 </div>
-                
+
                 <div class="hero-stats">
                     <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
                         <div class="stat-number" data-target="15" data-suffix="+">0</div>
@@ -51,7 +51,7 @@ $gallery = getGallery(6);
                     </div>
                 </div>
             </div>
-            
+
             <div class="hero-visual" data-aos="fade-left" data-aos-delay="200">
                 <div class="hero-logo-wrapper">
                     <img src="<?php echo ASSETS_URL; ?>/images/logo.png" alt="Thrimana Logo" class="hero-logo">
@@ -69,7 +69,7 @@ $gallery = getGallery(6);
             <h2>Our Premium Services</h2>
             <p>From custom iron fabrication to impactful advertising and solid construction — we deliver excellence in every project.</p>
         </div>
-        
+
         <div class="services-grid">
             <?php foreach (array_slice($services, 0, 6) as $i => $service): ?>
             <div class="service-card" data-aos="fade-up" data-aos-delay="<?php echo $i * 100; ?>">
@@ -81,26 +81,26 @@ $gallery = getGallery(6);
             </div>
             <?php endforeach; ?>
         </div>
-        
-        <div style="text-align:center;margin-top:50px;" data-aos="fade-up">
+
+        <div class="section-action" data-aos="fade-up">
             <a href="services.php" class="btn btn-outline">View All Services <i class="fas fa-arrow-right"></i></a>
         </div>
     </div>
 </section>
 
 <!-- Why Choose Us -->
-<section class="section" style="background: linear-gradient(180deg, transparent, rgba(245,184,0,0.03), transparent);">
+<section class="section section-tinted">
     <div class="container">
         <div class="about-grid">
             <div class="about-image" data-aos="fade-right">
-                <img src="<?php echo ASSETS_URL; ?>/images/logo.png" alt="Thrimana Quality" style="border-radius:50%;width:80%;margin:0 auto;box-shadow:0 0 80px rgba(245,184,0,0.2);">
+                <img src="<?php echo ASSETS_URL; ?>/images/logo.png" alt="Thrimana Quality" class="about-logo">
             </div>
             <div class="about-content" data-aos="fade-left">
                 <span class="tag">Why Thrimana</span>
                 <h2>Crafted with Precision.<br>Built to Last.</h2>
                 <p>We combine traditional craftsmanship with modern technology to create iron works, signage and structures that stand out and stand strong.</p>
                 <p>Every project is handled with attention to detail, quality materials and professional installation.</p>
-                
+
                 <div class="about-features">
                     <div class="feature-item">
                         <i class="fas fa-check-circle"></i>
@@ -119,8 +119,8 @@ $gallery = getGallery(6);
                         <span>After-Sales Support</span>
                     </div>
                 </div>
-                
-                <div style="margin-top:30px;">
+
+                <div class="about-action">
                     <a href="about.php" class="btn btn-primary">Learn More About Us</a>
                 </div>
             </div>
@@ -136,12 +136,15 @@ $gallery = getGallery(6);
             <h2>Project Gallery</h2>
             <p>A glimpse of the quality work we deliver for our valued clients.</p>
         </div>
-        
+
         <?php if (count($gallery) > 0): ?>
         <div class="gallery-grid">
             <?php foreach ($gallery as $i => $item): ?>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="<?php echo $i * 80; ?>">
-                <img src="<?php echo ASSETS_URL; ?>/uploads/<?php echo htmlspecialchars($item['image_path']); ?>" alt="<?php echo htmlspecialchars($item['title']); ?>" onerror="this.src='<?php echo ASSETS_URL; ?>/images/logo.png'">
+                <img src="<?php echo ASSETS_URL; ?>/uploads/<?php echo htmlspecialchars($item['image_path']); ?>"
+                     alt="<?php echo htmlspecialchars($item['title']); ?>"
+                     loading="lazy"
+                     onerror="this.src='<?php echo ASSETS_URL; ?>/images/logo.png'">
                 <div class="gallery-overlay">
                     <h4><?php echo htmlspecialchars($item['title'] ?: 'Project'); ?></h4>
                     <span><?php echo htmlspecialchars($item['category']); ?></span>
@@ -153,9 +156,9 @@ $gallery = getGallery(6);
         <div class="gallery-grid">
             <?php for ($i = 1; $i <= 6; $i++): ?>
             <div class="gallery-item" data-aos="zoom-in" data-aos-delay="<?php echo $i * 80; ?>">
-                <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1a1a,#2a2a2a);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;">
-                    <i class="fas fa-image" style="font-size:2.5rem;color:#444;"></i>
-                    <span style="color:#666;font-size:0.9rem;">Project <?php echo $i; ?></span>
+                <div class="gallery-placeholder">
+                    <i class="fas fa-image"></i>
+                    <span>Project <?php echo $i; ?></span>
                 </div>
                 <div class="gallery-overlay">
                     <h4>Sample Project <?php echo $i; ?></h4>
@@ -165,8 +168,8 @@ $gallery = getGallery(6);
             <?php endfor; ?>
         </div>
         <?php endif; ?>
-        
-        <div style="text-align:center;margin-top:50px;" data-aos="fade-up">
+
+        <div class="section-action" data-aos="fade-up">
             <a href="gallery.php" class="btn btn-outline">View Full Gallery <i class="fas fa-images"></i></a>
         </div>
     </div>
