@@ -1,48 +1,48 @@
 [
     {
         "id": 1,
-        "title": "Iron Works & Fabrication",
-        "description": "Custom steel fabrication, gates, railings, structural frames, industrial metal works with precision welding and finishing.",
+        "title": "Iron & Steel Fabrication",
+        "description": "Automatic gate systems, carports, canopies, pergolas, railings, balustrades, commercial steel structures",
         "icon": "fa-industry",
         "sort_order": 1,
         "is_active": 1
     },
     {
         "id": 2,
-        "title": "Advertising & Signage",
-        "description": "LED boards, 3D letters, billboards, vehicle branding, shop fronts and complete outdoor advertising solutions.",
+        "title": "Advertising & Billboard Solutions",
+        "description": "Highway billboards, city hoardings, light boxes, digital LED display units",
         "icon": "fa-ad",
         "sort_order": 2,
         "is_active": 1
     },
     {
         "id": 3,
-        "title": "Construction Services",
-        "description": "Residential, commercial and industrial construction, renovations, structural works and project management.",
+        "title": "Civil & Construction Works",
+        "description": "Foundation base welding, civil masonry, structural foundation, site construction",
         "icon": "fa-hard-hat",
         "sort_order": 3,
         "is_active": 1
     },
     {
         "id": 4,
-        "title": "Architectural Metal Design",
-        "description": "Designer staircases, balconies, canopies, pergolas and modern metal architectural elements.",
+        "title": "Specialized Architectural Works",
+        "description": "Tempered glass, polycarbonate sheets, aluminium partitions, gutter systems, I-panels, cladding",
         "icon": "fa-drafting-compass",
         "sort_order": 4,
         "is_active": 1
     },
     {
         "id": 5,
-        "title": "Powder Coating & Finishing",
-        "description": "Durable powder coating, anti-rust treatment and premium finishes for long-lasting protection.",
+        "title": "Printing & Branding Materials",
+        "description": "Large format digital printing, vinyl stickers, flex banners, promotional signboards",
         "icon": "fa-spray-can",
         "sort_order": 5,
         "is_active": 1
     },
     {
         "id": 6,
-        "title": "Installation & Maintenance",
-        "description": "Professional on-site installation, repairs and maintenance services for all our products.",
+        "title": "Test Fabrication Sector",
+        "description": "Test Category",
         "icon": "fa-tools",
         "sort_order": 6,
         "is_active": 1

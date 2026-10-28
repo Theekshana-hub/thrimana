@@ -2,15 +2,43 @@
     {
         "id": 1,
         "title": "",
-        "category": "iron-works",
-        "image_path": "gallery_1793093609_279.jpeg",
-        "created_at": "2026-10-27 09:33:29"
+        "category": "iron-works-fabrication",
+        "image_path": "gallery_1793176549_843.jpeg",
+        "created_at": "2026-10-28 08:35:49"
     },
     {
         "id": 2,
         "title": "",
-        "category": "advertising",
-        "image_path": "gallery_1793093619_872.jpeg",
-        "created_at": "2026-10-27 09:33:39"
+        "category": "advertising-signage",
+        "image_path": "gallery_1793176605_972.jpeg",
+        "created_at": "2026-10-28 08:36:45"
+    },
+    {
+        "id": 3,
+        "title": "",
+        "category": "printing-branding-materials",
+        "image_path": "gallery_1793178761_523.jpeg",
+        "created_at": "2026-10-28 09:12:41"
+    },
+    {
+        "id": 4,
+        "title": "",
+        "category": "test-fabrication-sector",
+        "image_path": "gallery_1793178890_213.jpeg",
+        "created_at": "2026-10-28 09:14:50"
+    },
+    {
+        "id": 5,
+        "title": "",
+        "category": "iron-steel-fabrication",
+        "image_path": "gallery_1793178946_216.jpeg",
+        "created_at": "2026-10-28 09:15:46"
+    },
+    {
+        "id": 6,
+        "title": "",
+        "category": "printing-branding-materials",
+        "image_path": "gallery_1793178964_898.jpeg",
+        "created_at": "2026-10-28 09:16:04"
     }
 ]
