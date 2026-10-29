@@ -7,38 +7,73 @@
         "created_at": "2026-10-28 08:35:49"
     },
     {
-        "id": 2,
+        "id": 7,
         "title": "",
-        "category": "advertising-signage",
-        "image_path": "gallery_1793176605_972.jpeg",
-        "created_at": "2026-10-28 08:36:45"
+        "category": "specialized-architectural-works",
+        "image_path": "gallery_1793260121_785.jpeg",
+        "created_at": "2026-10-29 07:48:41"
     },
     {
-        "id": 3,
+        "id": 10,
         "title": "",
-        "category": "printing-branding-materials",
-        "image_path": "gallery_1793178761_523.jpeg",
-        "created_at": "2026-10-28 09:12:41"
+        "category": "advertising-billboard-solutions",
+        "image_path": "gallery_1793267287_115.jpeg",
+        "created_at": "2026-10-29 09:48:07"
     },
     {
-        "id": 4,
+        "id": 11,
         "title": "",
-        "category": "test-fabrication-sector",
-        "image_path": "gallery_1793178890_213.jpeg",
-        "created_at": "2026-10-28 09:14:50"
+        "category": "advertising-billboard-solutions",
+        "image_path": "gallery_1793267967_222.jpeg",
+        "created_at": "2026-10-29 09:59:27"
     },
     {
-        "id": 5,
+        "id": 12,
+        "title": "",
+        "category": "multi-panel-pole-signboards-custom-steel-sign-structures",
+        "image_path": "gallery_1793268189_630.jpeg",
+        "created_at": "2026-10-29 10:03:09"
+    },
+    {
+        "id": 13,
         "title": "",
         "category": "iron-steel-fabrication",
-        "image_path": "gallery_1793178946_216.jpeg",
-        "created_at": "2026-10-28 09:15:46"
+        "image_path": "gallery_1793268243_404.jpeg",
+        "created_at": "2026-10-29 10:04:03"
     },
     {
-        "id": 6,
+        "id": 17,
         "title": "",
-        "category": "printing-branding-materials",
-        "image_path": "gallery_1793178964_898.jpeg",
-        "created_at": "2026-10-28 09:16:04"
+        "category": "multi-panel-pole-signboards-custom-steel-sign-structures",
+        "image_path": "gallery_1793268319_807.jpeg",
+        "created_at": "2026-10-29 10:05:19"
+    },
+    {
+        "id": 18,
+        "title": "",
+        "category": "advertising-billboard-solutions",
+        "image_path": "gallery_1793268488_801.jpeg",
+        "created_at": "2026-10-29 10:08:08"
+    },
+    {
+        "id": 19,
+        "title": "",
+        "category": "specialized-architectural-works",
+        "image_path": "gallery_1793268842_420.jpeg",
+        "created_at": "2026-10-29 10:14:02"
+    },
+    {
+        "id": 20,
+        "title": "",
+        "category": "iron-steel-fabrication",
+        "image_path": "gallery_1793268929_877.jpeg",
+        "created_at": "2026-10-29 10:15:29"
+    },
+    {
+        "id": 21,
+        "title": "",
+        "category": "multi-panel-pole-signboards-custom-steel-sign-structures",
+        "image_path": "gallery_1793271186_446.jpeg",
+        "created_at": "2026-10-29 10:53:06"
     }
 ]

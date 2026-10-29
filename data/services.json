@@ -6,7 +6,7 @@
         "icon": "fa-industry",
         "sort_order": 1,
         "is_active": 1,
-        "image": "service_1793256602_8965.jpeg"
+        "image": "service_1793259470_3132.jpg"
     },
     {
         "id": 2,
@@ -14,7 +14,8 @@
         "description": "Highway billboards, city hoardings, light boxes, digital LED display units",
         "icon": "fa-ad",
         "sort_order": 2,
-        "is_active": 1
+        "is_active": 1,
+        "image": "service_1793259621_1801.jpg"
     },
     {
         "id": 3,
@@ -22,7 +23,8 @@
         "description": "Foundation base welding, civil masonry, structural foundation, site construction",
         "icon": "fa-hard-hat",
         "sort_order": 3,
-        "is_active": 1
+        "is_active": 1,
+        "image": "service_1793259780_1420.jpg"
     },
     {
         "id": 4,
@@ -30,7 +32,8 @@
         "description": "Tempered glass, polycarbonate sheets, aluminium partitions, gutter systems, I-panels, cladding",
         "icon": "fa-drafting-compass",
         "sort_order": 4,
-        "is_active": 1
+        "is_active": 1,
+        "image": "service_1793260223_5930.png"
     },
     {
         "id": 5,
@@ -38,7 +41,8 @@
         "description": "Large format digital printing, vinyl stickers, flex banners, promotional signboards",
         "icon": "fa-spray-can",
         "sort_order": 5,
-        "is_active": 1
+        "is_active": 1,
+        "image": "service_1793260414_3917.png"
     },
     {
         "id": 6,
@@ -46,6 +50,16 @@
         "description": "Test Category",
         "icon": "fa-tools",
         "sort_order": 6,
+        "is_active": 1,
+        "image": "service_1793260489_3904.png"
+    },
+    {
+        "id": 7,
+        "title": "Multi Panel Pole Signboards & Custom Steel Sign Structures",
+        "description": "",
+        "icon": "fa-tools",
+        "image": "service_1793268160_6790.jpg",
+        "sort_order": 7,
         "is_active": 1
     }
 ]
