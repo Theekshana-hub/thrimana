@@ -5,10 +5,41 @@ require_once 'includes/header.php';
 
 $hero     = getContent('hero_title');
 $hero_sub = getContent('hero_subtitle');
-$services = getServices();
 $gallery  = getGallery(6);
-?>
 
+$services = [
+    [
+        'icon' => 'fa-ad',
+        'title' => 'Advertising & Billboard Solutions',
+        'description' => 'Highway billboards, city hoardings, light boxes, digital LED display units'
+    ],
+    [
+        'icon' => 'fa-hard-hat',
+        'title' => 'Civil & Construction Works',
+        'description' => 'Foundation base welding, civil masonry, structural foundation, site construction'
+    ],
+    [
+        'icon' => 'fa-industry',
+        'title' => 'Iron & Steel Fabrication',
+        'description' => 'Automatic gate systems, carports, canopies, pergolas, railings, balustrades, commercial steel structures'
+    ],
+    [
+        'icon' => 'fa-print',
+        'title' => 'Printing & Branding Materials',
+        'description' => 'Large format digital printing, vinyl stickers, flex banners, promotional signboards'
+    ],
+    [
+        'icon' => 'fa-drafting-compass',
+        'title' => 'Specialized Architectural Works',
+        'description' => 'Tempered glass, polycarbonate sheets, aluminium partitions, gutter systems, I-panels, cladding'
+    ],
+    [
+        'icon' => 'fa-tools',
+        'title' => 'Test Fabrication Sector',
+        'description' => 'Test Category'
+    ]
+];
+?>
 
 <section class="hero">
     <div class="hero-bg-shapes">
@@ -61,7 +92,6 @@ $gallery  = getGallery(6);
     </div>
 </section>
 
-
 <section class="section">
     <div class="container">
         <div class="section-header" data-aos="fade-up">
@@ -71,7 +101,7 @@ $gallery  = getGallery(6);
         </div>
 
         <div class="services-grid">
-            <?php foreach (array_slice($services, 0, 6) as $i => $service): ?>
+            <?php foreach ($services as $i => $service): ?>
             <div class="service-card" data-aos="fade-up" data-aos-delay="<?php echo $i * 100; ?>">
                 <div class="service-icon">
                     <i class="fas <?php echo htmlspecialchars($service['icon']); ?>"></i>
@@ -87,7 +117,6 @@ $gallery  = getGallery(6);
         </div>
     </div>
 </section>
-
 
 <section class="section section-tinted">
     <div class="container">
@@ -127,7 +156,6 @@ $gallery  = getGallery(6);
         </div>
     </div>
 </section>
-
 
 <section class="section gallery-preview-section">
     <div class="container">
@@ -177,7 +205,6 @@ $gallery  = getGallery(6);
     </div>
 </section>
 
-
 <section class="cta-section">
     <div class="container" data-aos="zoom-in">
         <h2>Ready to Start Your Project?</h2>
@@ -189,7 +216,6 @@ $gallery  = getGallery(6);
 </section>
 
 <style>
-
 .gallery-preview-section {
     background: #0a0a0a;
     padding: 80px 0;
@@ -268,7 +294,6 @@ $gallery  = getGallery(6);
     letter-spacing: 0.3px;
 }
 
-
 .gallery-item.empty {
     background: linear-gradient(145deg, #151515, #1f1f1f);
 }
@@ -297,7 +322,6 @@ $gallery  = getGallery(6);
     color: #555;
     font-size: 0.9rem;
 }
-
 
 @media (max-width: 768px) {
     .gallery-grid {
