@@ -5,7 +5,8 @@
         "description": "Automatic gate systems, carports, canopies, pergolas, railings, balustrades, commercial steel structures",
         "icon": "fa-industry",
         "sort_order": 1,
-        "is_active": 1
+        "is_active": 1,
+        "image": "service_1793256602_8965.jpeg"
     },
     {
         "id": 2,
