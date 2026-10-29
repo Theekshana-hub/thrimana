@@ -6,39 +6,7 @@ require_once 'includes/header.php';
 $hero     = getContent('hero_title');
 $hero_sub = getContent('hero_subtitle');
 $gallery  = getGallery(6);
-
-$services = [
-    [
-        'icon' => 'fa-ad',
-        'title' => 'Advertising & Billboard Solutions',
-        'description' => 'Highway billboards, city hoardings, light boxes, digital LED display units'
-    ],
-    [
-        'icon' => 'fa-hard-hat',
-        'title' => 'Civil & Construction Works',
-        'description' => 'Foundation base welding, civil masonry, structural foundation, site construction'
-    ],
-    [
-        'icon' => 'fa-industry',
-        'title' => 'Iron & Steel Fabrication',
-        'description' => 'Automatic gate systems, carports, canopies, pergolas, railings, balustrades, commercial steel structures'
-    ],
-    [
-        'icon' => 'fa-print',
-        'title' => 'Printing & Branding Materials',
-        'description' => 'Large format digital printing, vinyl stickers, flex banners, promotional signboards'
-    ],
-    [
-        'icon' => 'fa-drafting-compass',
-        'title' => 'Specialized Architectural Works',
-        'description' => 'Tempered glass, polycarbonate sheets, aluminium partitions, gutter systems, I-panels, cladding'
-    ],
-    [
-        'icon' => 'fa-tools',
-        'title' => 'Test Fabrication Sector',
-        'description' => 'Test Category'
-    ]
-];
+$services = getServices(6);
 ?>
 
 <section class="hero">
@@ -103,9 +71,17 @@ $services = [
         <div class="services-grid">
             <?php foreach ($services as $i => $service): ?>
             <div class="service-card" data-aos="fade-up" data-aos-delay="<?php echo $i * 100; ?>">
-                <div class="service-icon">
-                    <i class="fas <?php echo htmlspecialchars($service['icon']); ?>"></i>
-                </div>
+                <?php if (!empty($service['image'])): ?>
+                    <div class="service-image">
+                        <img src="<?php echo ASSETS_URL; ?>/uploads/<?php echo htmlspecialchars($service['image']); ?>"
+                             alt="<?php echo htmlspecialchars($service['title']); ?>"
+                             onerror="this.parentElement.innerHTML='<div class=\'service-icon\'><i class=\'fas <?php echo htmlspecialchars($service['icon'] ?? 'fa-tools'); ?>\'></i></div>'">
+                    </div>
+                <?php else: ?>
+                    <div class="service-icon">
+                        <i class="fas <?php echo htmlspecialchars($service['icon'] ?? 'fa-tools'); ?>"></i>
+                    </div>
+                <?php endif; ?>
                 <h3><?php echo htmlspecialchars($service['title']); ?></h3>
                 <p><?php echo htmlspecialchars($service['description']); ?></p>
             </div>
@@ -220,14 +196,12 @@ $services = [
     background: #0a0a0a;
     padding: 80px 0;
 }
-
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 24px;
     margin-bottom: 40px;
 }
-
 .gallery-item {
     position: relative;
     border-radius: 16px;
@@ -238,18 +212,15 @@ $services = [
     transition: all 0.35s ease;
     cursor: pointer;
 }
-
 .gallery-item:hover {
     border-color: #f5c518;
     transform: translateY(-6px);
     box-shadow: 0 12px 30px rgba(245, 197, 24, 0.15);
 }
-
 .gallery-img-wrap {
     width: 100%;
     height: 100%;
 }
-
 .gallery-img-wrap img {
     width: 100%;
     height: 100%;
@@ -257,11 +228,9 @@ $services = [
     display: block;
     transition: transform 0.5s ease;
 }
-
 .gallery-item:hover .gallery-img-wrap img {
     transform: scale(1.08);
 }
-
 .gallery-overlay {
     position: absolute;
     bottom: 0;
@@ -273,12 +242,10 @@ $services = [
     opacity: 0.9;
     transition: all 0.35s ease;
 }
-
 .gallery-item:hover .gallery-overlay {
     transform: translateY(0);
     opacity: 1;
 }
-
 .gallery-overlay h4 {
     color: #ffffff;
     font-size: 1.15rem;
@@ -286,18 +253,15 @@ $services = [
     margin: 0 0 6px 0;
     line-height: 1.3;
 }
-
 .gallery-overlay span {
     color: #f5c518;
     font-size: 0.85rem;
     font-weight: 500;
     letter-spacing: 0.3px;
 }
-
 .gallery-item.empty {
     background: linear-gradient(145deg, #151515, #1f1f1f);
 }
-
 .empty-placeholder {
     width: 100%;
     height: 100%;
@@ -307,29 +271,41 @@ $services = [
     justify-content: center;
     gap: 14px;
 }
-
 .empty-placeholder i {
     font-size: 2.8rem;
     color: #3a3a3a;
     transition: color 0.3s ease;
 }
-
 .gallery-item.empty:hover .empty-placeholder i {
     color: #f5c518;
 }
-
 .empty-placeholder span {
     color: #555;
     font-size: 0.9rem;
 }
-
+.service-image {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    background: #1a1a1a;
+}
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+.service-card:hover .service-image img {
+    transform: scale(1.06);
+}
 @media (max-width: 768px) {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
     }
 }
-
 @media (max-width: 480px) {
     .gallery-grid {
         grid-template-columns: 1fr;
