@@ -71,17 +71,9 @@ $services = getServices(6);
         <div class="services-grid">
             <?php foreach ($services as $i => $service): ?>
             <div class="service-card" data-aos="fade-up" data-aos-delay="<?php echo $i * 100; ?>">
-                <?php if (!empty($service['image'])): ?>
-                    <div class="service-image">
-                        <img src="<?php echo ASSETS_URL; ?>/uploads/<?php echo htmlspecialchars($service['image']); ?>"
-                             alt="<?php echo htmlspecialchars($service['title']); ?>"
-                             onerror="this.parentElement.innerHTML='<div class=\'service-icon\'><i class=\'fas <?php echo htmlspecialchars($service['icon'] ?? 'fa-tools'); ?>\'></i></div>'">
-                    </div>
-                <?php else: ?>
-                    <div class="service-icon">
-                        <i class="fas <?php echo htmlspecialchars($service['icon'] ?? 'fa-tools'); ?>"></i>
-                    </div>
-                <?php endif; ?>
+                <div class="service-icon">
+                    <i class="fas <?php echo htmlspecialchars($service['icon'] ?? 'fa-tools'); ?>"></i>
+                </div>
                 <h3><?php echo htmlspecialchars($service['title']); ?></h3>
                 <p><?php echo htmlspecialchars($service['description']); ?></p>
             </div>
@@ -282,23 +274,6 @@ $services = getServices(6);
 .empty-placeholder span {
     color: #555;
     font-size: 0.9rem;
-}
-.service-image {
-    width: 100%;
-    height: 160px;
-    overflow: hidden;
-    border-radius: 12px;
-    margin-bottom: 16px;
-    background: #1a1a1a;
-}
-.service-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-}
-.service-card:hover .service-image img {
-    transform: scale(1.06);
 }
 @media (max-width: 768px) {
     .gallery-grid {

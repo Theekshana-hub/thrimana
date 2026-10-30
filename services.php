@@ -21,14 +21,23 @@ $services = getServices();
         <div class="services-grid">
             <?php foreach ($services as $i => $service): ?>
             <div class="service-card" data-aos="fade-up" data-aos-delay="<?php echo ($i % 3) * 100; ?>">
-                <div class="service-icon">
-                    <i class="fas <?php echo htmlspecialchars($service['icon']); ?>"></i>
-                </div>
+                <?php if (!empty($service['image'])): ?>
+                    <div class="service-image">
+                        <img src="<?php echo ASSETS_URL; ?>/uploads/<?php echo htmlspecialchars($service['image']); ?>"
+                             alt="<?php echo htmlspecialchars($service['title']); ?>"
+                             loading="lazy"
+                             onerror="this.parentElement.innerHTML='<div class=\'service-icon\'><i class=\'fas <?php echo htmlspecialchars($service['icon'] ?? 'fa-tools'); ?>\'></i></div>'">
+                    </div>
+                <?php else: ?>
+                    <div class="service-icon">
+                        <i class="fas <?php echo htmlspecialchars($service['icon'] ?? 'fa-tools'); ?>"></i>
+                    </div>
+                <?php endif; ?>
                 <h3><?php echo htmlspecialchars($service['title']); ?></h3>
                 <p><?php echo htmlspecialchars($service['description']); ?></p>
             </div>
             <?php endforeach; ?>
-            
+
             <?php if (empty($services)): ?>
             <div class="empty-state" style="grid-column:1/-1;">
                 <i class="fas fa-tools"></i>
@@ -46,5 +55,26 @@ $services = getServices();
         <a href="contact.php" class="btn btn-primary"><i class="fas fa-comments"></i> Request a Quote</a>
     </div>
 </section>
+
+<style>
+.service-image {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    background: #1a1a1a;
+}
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+.service-card:hover .service-image img {
+    transform: scale(1.06);
+}
+</style>
 
 <?php require_once 'includes/footer.php'; ?>
