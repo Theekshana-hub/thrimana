@@ -184,60 +184,76 @@ $services = getServices(6);
 </section>
 
 <style>
+/* ========== Project Gallery Styles ========== */
 .gallery-preview-section {
     background: #0a0a0a;
     padding: 80px 0;
 }
+
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 28px;
     margin-bottom: 40px;
 }
+
 .gallery-item {
     position: relative;
     border-radius: 16px;
     overflow: hidden;
     background: #151515;
     border: 1px solid #252525;
-    aspect-ratio: 4/3;
+    aspect-ratio: 4 / 3;
     transition: all 0.35s ease;
     cursor: pointer;
 }
+
 .gallery-item:hover {
     border-color: #f5c518;
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(245, 197, 24, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(245, 197, 24, 0.18);
 }
+
 .gallery-img-wrap {
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #111;
 }
+
 .gallery-img-wrap img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;          /* Full image properly shows (no heavy crop) */
+    object-position: center;
     display: block;
     transition: transform 0.5s ease;
+    background: #111;
 }
+
 .gallery-item:hover .gallery-img-wrap img {
-    transform: scale(1.08);
+    transform: scale(1.05);
 }
+
 .gallery-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 20px;
-    background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.45) 60%, transparent 100%);
-    transform: translateY(8px);
-    opacity: 0.9;
+    padding: 22px 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.55) 55%, transparent 100%);
+    transform: translateY(10px);
+    opacity: 0.92;
     transition: all 0.35s ease;
 }
+
 .gallery-item:hover .gallery-overlay {
     transform: translateY(0);
     opacity: 1;
 }
+
 .gallery-overlay h4 {
     color: #ffffff;
     font-size: 1.15rem;
@@ -245,15 +261,19 @@ $services = getServices(6);
     margin: 0 0 6px 0;
     line-height: 1.3;
 }
+
 .gallery-overlay span {
     color: #f5c518;
     font-size: 0.85rem;
     font-weight: 500;
     letter-spacing: 0.3px;
 }
+
+/* Empty state */
 .gallery-item.empty {
     background: linear-gradient(145deg, #151515, #1f1f1f);
 }
+
 .empty-placeholder {
     width: 100%;
     height: 100%;
@@ -263,24 +283,30 @@ $services = getServices(6);
     justify-content: center;
     gap: 14px;
 }
+
 .empty-placeholder i {
     font-size: 2.8rem;
     color: #3a3a3a;
     transition: color 0.3s ease;
 }
+
 .gallery-item.empty:hover .empty-placeholder i {
     color: #f5c518;
 }
+
 .empty-placeholder span {
     color: #555;
     font-size: 0.9rem;
 }
+
+/* Responsive */
 @media (max-width: 768px) {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+        gap: 18px;
     }
 }
+
 @media (max-width: 480px) {
     .gallery-grid {
         grid-template-columns: 1fr;
