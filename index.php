@@ -184,7 +184,7 @@ $services = getServices(6);
 </section>
 
 <style>
-/* ========== Project Gallery Styles ========== */
+/* ========== Project Gallery Styles (original) ========== */
 .gallery-preview-section {
     background: #0a0a0a;
     padding: 80px 0;
@@ -226,7 +226,7 @@ $services = getServices(6);
 .gallery-img-wrap img {
     width: 100%;
     height: 100%;
-    object-fit: contain;          /* Full image properly shows (no heavy crop) */
+    object-fit: contain;
     object-position: center;
     display: block;
     transition: transform 0.5s ease;
@@ -269,7 +269,6 @@ $services = getServices(6);
     letter-spacing: 0.3px;
 }
 
-/* Empty state */
 .gallery-item.empty {
     background: linear-gradient(145deg, #151515, #1f1f1f);
 }
@@ -299,11 +298,179 @@ $services = getServices(6);
     font-size: 0.9rem;
 }
 
-/* Responsive */
+/* =====================================================
+   MOBILE / TABLET: text udin, LOGO YATIN (pahalin)
+   PC design ekata kisima wenasak na
+   ===================================================== */
+
+@media (max-width: 992px) {
+
+    .hero {
+        overflow: hidden;
+    }
+
+    /* Single column: text udin, logo yatin */
+    .hero-content {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        align-items: start !important;
+        gap: 36px !important;
+        text-align: left !important;
+    }
+
+    .hero-text {
+        order: 1 !important;
+        min-width: 0;
+        max-width: 100% !important;
+        text-align: left !important;
+    }
+
+    .hero-visual {
+        order: 2 !important;              /* logo eka yatinma */
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        min-width: 0;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    /* ===== LOGO: hariyatama circle, oval wenne na, crop wenne na ===== */
+    .hero-logo-wrapper {
+        position: relative;
+        width: min(72vw, 320px) !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+        aspect-ratio: 1 / 1 !important;
+        margin: 0 auto !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+
+    .hero-logo {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100% !important;
+        aspect-ratio: 1 / 1 !important;
+        object-fit: contain !important;
+        object-position: center !important;
+        padding: 9% !important;
+        box-sizing: border-box !important;
+        border-radius: 50% !important;
+        display: block;
+    }
+
+    /* Heading: THRIMANA <br> Advertising & Construction */
+    .hero-text h1 {
+        font-size: clamp(1.1rem, 4.8vw, 2.1rem) !important;
+        line-height: 1.2 !important;
+        overflow-wrap: break-word;
+    }
+
+    .hero-text h1 span {
+        font-size: clamp(2rem, 11vw, 3.8rem) !important;
+        line-height: 1.1 !important;
+    }
+
+    .hero-text .subtitle {
+        font-size: clamp(0.85rem, 3.2vw, 1.05rem) !important;
+        line-height: 1.6 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        max-width: 100% !important;
+    }
+
+    /* Buttons PC eke wage (row ekak) */
+    .hero-buttons {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: wrap !important;
+        justify-content: flex-start !important;
+        gap: 10px !important;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+    }
+
+    .hero-buttons .btn {
+        width: auto !important;
+        padding: 0.65em 1.1em !important;
+        font-size: clamp(0.75rem, 3vw, 0.95rem) !important;
+        white-space: nowrap;
+    }
+
+    /* Stats 3 eka row ekakata */
+    .hero-stats {
+        display: grid !important;
+        grid-template-columns: repeat(3, auto) !important;
+        justify-content: start !important;
+        gap: 6vw !important;
+    }
+
+    .hero-stats .stat-item {
+        padding: 0 !important;
+        text-align: left;
+    }
+
+    .hero-stats .stat-number {
+        font-size: clamp(1.3rem, 6vw, 2.2rem) !important;
+    }
+
+    .hero-stats .stat-label {
+        font-size: clamp(0.62rem, 2.4vw, 0.85rem) !important;
+        line-height: 1.25 !important;
+    }
+
+    .hero-bg-shapes .shape {
+        max-width: 80vw;
+        max-height: 80vw;
+    }
+}
+
+/* Mobile phones */
 @media (max-width: 768px) {
+    .hero {
+        padding-top: 80px !important;
+        padding-bottom: 40px !important;
+    }
+
+    .hero .container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    /* Gallery */
+    .gallery-preview-section {
+        padding: 50px 0;
+    }
+
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 18px;
+        gap: 14px;
+    }
+
+    .gallery-overlay {
+        padding: 14px 12px;
+    }
+
+    .gallery-overlay h4 {
+        font-size: 0.95rem;
+    }
+
+    .gallery-overlay span {
+        font-size: 0.75rem;
+    }
+}
+
+/* Chuti phones */
+@media (max-width: 400px) {
+    .hero-buttons .btn i {
+        display: none;
+    }
+
+    .hero-stats {
+        gap: 4vw !important;
     }
 }
 
