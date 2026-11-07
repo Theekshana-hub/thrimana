@@ -9,7 +9,7 @@
                         <p>Advertising & Construction Services<br>Ruhunu Iron Works</p>
                         <div class="social-links">
                             <a href="<?php echo getSetting('facebook'); ?>" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                            <a href="<?php echo getSetting('instagram'); ?>" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            
                             <a href="https://wa.me/<?php echo getSetting('whatsapp'); ?>" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
