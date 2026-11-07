@@ -1,9 +1,64 @@
 <?php
 $page_title = 'Hoarding Locations';
 $page_desc  = 'Island Wide 30x20 Hoarding Sites - Premium Billboard Advertising across Sri Lanka | Thrimana Advertising';
+
+// ========== HOARDING FUNCTIONS (self-contained) ==========
+if (!function_exists('getHoardingLocations')) {
+
+    function getHoardingLocations($limit = null, $activeOnly = true) {
+        $defaultLocations = [
+            ['id'=>1,'site_number'=>'01','title'=>'Polgahawela Town','location'=>'Polgahawela','size'=>'30X20','price'=>475000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>1,'is_active'=>1],
+            ['id'=>2,'site_number'=>'04','title'=>'Kanthale, Agbopura 85 - Junction','location'=>'Kanthale / Agbopura','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>2,'is_active'=>1],
+            ['id'=>3,'site_number'=>'05','title'=>'Habarana Roundabout - Site 1','location'=>'Habarana','size'=>'30X20','price'=>750000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>3,'is_active'=>1],
+            ['id'=>4,'site_number'=>'06','title'=>'Habarana - Site 2','location'=>'Habarana','size'=>'30X20','price'=>490000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>4,'is_active'=>1],
+            ['id'=>5,'site_number'=>'07','title'=>'Sigiriya - Audangawa','location'=>'Sigiriya / Audangawa','size'=>'30X20','price'=>475000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>5,'is_active'=>1],
+            ['id'=>6,'site_number'=>'08','title'=>'Trincomalee - Roundabout Site 1','location'=>'Trincomalee','size'=>'30X20','price'=>850000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>6,'is_active'=>1],
+            ['id'=>7,'site_number'=>'09','title'=>'Trincomalee - Roundabout Site 2','location'=>'Trincomalee','size'=>'30X20','price'=>850000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>7,'is_active'=>1],
+            ['id'=>8,'site_number'=>'11','title'=>'Morawaka, Nelumdeniya','location'=>'Morawaka / Nelumdeniya','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>8,'is_active'=>1],
+            ['id'=>9,'site_number'=>'13','title'=>'Anuradapura Jayanthi Mawath (Near Bikku University)','location'=>'Anuradhapura','size'=>'30X20','price'=>950000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>9,'is_active'=>1],
+            ['id'=>10,'site_number'=>'14','title'=>'Kadawatha','location'=>'Kadawatha','size'=>'30X20','price'=>750000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>10,'is_active'=>1],
+            ['id'=>11,'site_number'=>'15','title'=>'Wewaldeniya - Koragasmankada','location'=>'Wewaldeniya','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>11,'is_active'=>1],
+            ['id'=>12,'site_number'=>'17','title'=>'Kappalthurei - Trincomalee Road','location'=>'Kappalthurei','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>12,'is_active'=>1],
+            ['id'=>13,'site_number'=>'18','title'=>'Eheliyagoda Road, Minnana, Gataheththa','location'=>'Eheliyagoda / Minnana','size'=>'30X20','price'=>590000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>13,'is_active'=>1],
+            ['id'=>14,'site_number'=>'21','title'=>'Bawilgamuwa, Pothuhera','location'=>'Bawilgamuwa / Pothuhera','size'=>'30X20','price'=>650000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>14,'is_active'=>1],
+            ['id'=>15,'site_number'=>'22','title'=>'Near Peliyagoda Highway Exit','location'=>'Peliyagoda','size'=>'30X20','price'=>1500000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>15,'is_active'=>1],
+            ['id'=>16,'site_number'=>'23','title'=>'Pasyala - Muruthawela','location'=>'Pasyala / Muruthawela','size'=>'30X20','price'=>475000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>16,'is_active'=>1],
+        ];
+
+        $jsonLocations = [];
+        $jsonFile = __DIR__ . '/data/hoarding.json';
+
+        if (function_exists('readJson')) {
+            $jsonLocations = readJson('hoarding.json');
+            if (!is_array($jsonLocations)) $jsonLocations = [];
+        } elseif (file_exists($jsonFile)) {
+            $jsonLocations = json_decode(file_get_contents($jsonFile), true);
+            if (!is_array($jsonLocations)) $jsonLocations = [];
+        }
+
+        $merged = !empty($jsonLocations) ? $jsonLocations : $defaultLocations;
+
+        if ($activeOnly) {
+            $merged = array_values(array_filter($merged, function($item) {
+                return !empty($item['is_active']);
+            }));
+        }
+
+        usort($merged, function($a, $b) {
+            return ($a['sort_order'] ?? 999) <=> ($b['sort_order'] ?? 999);
+        });
+
+        if ($limit) {
+            $merged = array_slice($merged, 0, $limit);
+        }
+
+        return $merged;
+    }
+}
+
 require_once 'includes/header.php';
 
-$locations = getHoardingLocations(true); // only active
+$locations = getHoardingLocations();
 ?>
 
 <section class="section" style="padding-top: 120px;">
@@ -80,14 +135,12 @@ $locations = getHoardingLocations(true); // only active
 </section>
 
 <style>
-/* ========== HOARDING LOCATIONS ========== */
 .hoarding-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
     gap: 28px;
     margin-top: 20px;
 }
-
 .hoarding-card {
     background: #151515;
     border: 1px solid #252525;
@@ -97,13 +150,11 @@ $locations = getHoardingLocations(true); // only active
     display: flex;
     flex-direction: column;
 }
-
 .hoarding-card:hover {
     border-color: #f5c518;
     transform: translateY(-8px);
     box-shadow: 0 16px 40px rgba(245, 197, 24, 0.15);
 }
-
 .hoarding-image {
     position: relative;
     width: 100%;
@@ -111,18 +162,15 @@ $locations = getHoardingLocations(true); // only active
     background: #111;
     overflow: hidden;
 }
-
 .hoarding-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
 }
-
 .hoarding-card:hover .hoarding-image img {
     transform: scale(1.06);
 }
-
 .hoarding-placeholder {
     width: 100%;
     height: 100%;
@@ -134,17 +182,8 @@ $locations = getHoardingLocations(true); // only active
     background: linear-gradient(145deg, #1a1a1a, #111);
     color: #444;
 }
-
-.hoarding-placeholder i {
-    font-size: 3rem;
-    color: #333;
-}
-
-.hoarding-placeholder span {
-    font-size: 0.9rem;
-    color: #555;
-}
-
+.hoarding-placeholder i { font-size: 3rem; color: #333; }
+.hoarding-placeholder span { font-size: 0.9rem; color: #555; }
 .site-badge {
     position: absolute;
     top: 14px;
@@ -157,14 +196,12 @@ $locations = getHoardingLocations(true); // only active
     border-radius: 6px;
     letter-spacing: 0.5px;
 }
-
 .hoarding-body {
     padding: 22px 20px 24px;
     display: flex;
     flex-direction: column;
     flex: 1;
 }
-
 .hoarding-body h3 {
     color: #fff;
     font-size: 1.15rem;
@@ -172,22 +209,13 @@ $locations = getHoardingLocations(true); // only active
     margin: 0 0 8px 0;
     line-height: 1.35;
 }
-
 .hoarding-body .location {
     color: #888;
     font-size: 0.88rem;
     margin: 0 0 12px 0;
 }
-
-.hoarding-body .location i {
-    color: #f5c518;
-    margin-right: 6px;
-}
-
-.hoarding-meta {
-    margin-bottom: 16px;
-}
-
+.hoarding-body .location i { color: #f5c518; margin-right: 6px; }
+.hoarding-meta { margin-bottom: 16px; }
 .hoarding-meta .size {
     display: inline-flex;
     align-items: center;
@@ -198,12 +226,7 @@ $locations = getHoardingLocations(true); // only active
     padding: 5px 12px;
     border-radius: 20px;
 }
-
-.hoarding-meta .size i {
-    color: #f5c518;
-    font-size: 0.75rem;
-}
-
+.hoarding-meta .size i { color: #f5c518; font-size: 0.75rem; }
 .price-box {
     background: #0d0d0d;
     border: 1px solid #222;
@@ -211,7 +234,6 @@ $locations = getHoardingLocations(true); // only active
     padding: 14px 16px;
     margin-bottom: 18px;
 }
-
 .price-label {
     font-size: 0.75rem;
     color: #888;
@@ -219,63 +241,38 @@ $locations = getHoardingLocations(true); // only active
     letter-spacing: 0.5px;
     margin-bottom: 4px;
 }
-
 .price {
     font-size: 1.45rem;
     font-weight: 700;
     color: #f5c518;
     line-height: 1.2;
 }
-
 .price-note {
     font-size: 0.72rem;
     color: #666;
     margin-top: 6px;
     line-height: 1.4;
 }
-
 .hoarding-body .btn {
     margin-top: auto;
     width: 100%;
     text-align: center;
 }
-
-.btn-sm {
-    padding: 0.7em 1.2em;
-    font-size: 0.9rem;
-}
-
+.btn-sm { padding: 0.7em 1.2em; font-size: 0.9rem; }
 .empty-state {
     text-align: center;
     padding: 80px 20px;
     color: #666;
 }
-
-.empty-state i {
-    font-size: 4rem;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.empty-state h3 {
-    color: #aaa;
-    margin-bottom: 10px;
-}
+.empty-state i { font-size: 4rem; color: #333; margin-bottom: 20px; }
+.empty-state h3 { color: #aaa; margin-bottom: 10px; }
 
 @media (max-width: 768px) {
-    .hoarding-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .hoarding-image {
-        height: 200px;
-    }
+    .hoarding-grid { grid-template-columns: 1fr; gap: 20px; }
+    .hoarding-image { height: 200px; }
 }
-
 @media (min-width: 769px) and (max-width: 1100px) {
-    .hoarding-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+    .hoarding-grid { grid-template-columns: repeat(2, 1fr); }
 }
 </style>
 
