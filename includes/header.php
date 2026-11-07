@@ -55,6 +55,8 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
                 <li><a href="services.php" class="<?php echo $current_page == 'services' ? 'active' : ''; ?>">Services</a></li>
                 <li><a href="gallery.php" class="<?php echo $current_page == 'gallery' ? 'active' : ''; ?>">Gallery</a></li>
                 <li><a href="contact.php" class="<?php echo $current_page == 'contact' ? 'active' : ''; ?>">Contact</a></li>
+<li><a href="hoarding-location.php" class="<?php echo $current_page == 'hoarding-location' ? 'active' : ''; ?>">hoarding location</a></li>
+                
             </ul>
             
             <div class="nav-actions">
