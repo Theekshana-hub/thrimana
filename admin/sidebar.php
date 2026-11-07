@@ -28,5 +28,13 @@
         <a href="logout.php" class="logout-link">
             <i class="fas fa-sign-out-alt"></i> Logout
         </a>
+
+
+         <a href="hoarding_content.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'hoarding_content.php' ? 'active' : ''; ?>">
+            <i class="fas fa-envelope"></i> Messages
+        </a>
+         <a href="hoarding.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'hoarding.php' ? 'active' : ''; ?>">
+            <i class="fas fa-envelope"></i> Messages
+        </a>
     </nav>
 </aside>
