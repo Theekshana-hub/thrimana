@@ -2,27 +2,26 @@
 $page_title = 'Hoarding Locations';
 $page_desc  = 'Island Wide 30x20 Hoarding Sites - Premium Billboard Advertising across Sri Lanka | Thrimana Advertising';
 
-// ========== HOARDING FUNCTIONS (self-contained) ==========
+// ========== HOARDING FUNCTIONS ==========
 if (!function_exists('getHoardingLocations')) {
-
     function getHoardingLocations($limit = null, $activeOnly = true) {
         $defaultLocations = [
-            ['id'=>1,'site_number'=>'01','title'=>'Polgahawela Town','location'=>'Polgahawela','size'=>'30X20','price'=>475000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>1,'is_active'=>1],
-            ['id'=>2,'site_number'=>'04','title'=>'Kanthale, Agbopura 85 - Junction','location'=>'Kanthale / Agbopura','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>2,'is_active'=>1],
-            ['id'=>3,'site_number'=>'05','title'=>'Habarana Roundabout - Site 1','location'=>'Habarana','size'=>'30X20','price'=>750000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>3,'is_active'=>1],
-            ['id'=>4,'site_number'=>'06','title'=>'Habarana - Site 2','location'=>'Habarana','size'=>'30X20','price'=>490000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>4,'is_active'=>1],
-            ['id'=>5,'site_number'=>'07','title'=>'Sigiriya - Audangawa','location'=>'Sigiriya / Audangawa','size'=>'30X20','price'=>475000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>5,'is_active'=>1],
-            ['id'=>6,'site_number'=>'08','title'=>'Trincomalee - Roundabout Site 1','location'=>'Trincomalee','size'=>'30X20','price'=>850000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>6,'is_active'=>1],
-            ['id'=>7,'site_number'=>'09','title'=>'Trincomalee - Roundabout Site 2','location'=>'Trincomalee','size'=>'30X20','price'=>850000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>7,'is_active'=>1],
-            ['id'=>8,'site_number'=>'11','title'=>'Morawaka, Nelumdeniya','location'=>'Morawaka / Nelumdeniya','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>8,'is_active'=>1],
-            ['id'=>9,'site_number'=>'13','title'=>'Anuradapura Jayanthi Mawath (Near Bikku University)','location'=>'Anuradhapura','size'=>'30X20','price'=>950000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>9,'is_active'=>1],
-            ['id'=>10,'site_number'=>'14','title'=>'Kadawatha','location'=>'Kadawatha','size'=>'30X20','price'=>750000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>10,'is_active'=>1],
-            ['id'=>11,'site_number'=>'15','title'=>'Wewaldeniya - Koragasmankada','location'=>'Wewaldeniya','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>11,'is_active'=>1],
-            ['id'=>12,'site_number'=>'17','title'=>'Kappalthurei - Trincomalee Road','location'=>'Kappalthurei','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>12,'is_active'=>1],
-            ['id'=>13,'site_number'=>'18','title'=>'Eheliyagoda Road, Minnana, Gataheththa','location'=>'Eheliyagoda / Minnana','size'=>'30X20','price'=>590000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>13,'is_active'=>1],
-            ['id'=>14,'site_number'=>'21','title'=>'Bawilgamuwa, Pothuhera','location'=>'Bawilgamuwa / Pothuhera','size'=>'30X20','price'=>650000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>14,'is_active'=>1],
-            ['id'=>15,'site_number'=>'22','title'=>'Near Peliyagoda Highway Exit','location'=>'Peliyagoda','size'=>'30X20','price'=>1500000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>15,'is_active'=>1],
-            ['id'=>16,'site_number'=>'23','title'=>'Pasyala - Muruthawela','location'=>'Pasyala / Muruthawela','size'=>'30X20','price'=>475000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>16,'is_active'=>1],
+            ['id'=>1,'site_number'=>'01','title'=>'Polgahawela Town','location'=>'Polgahawela','size'=>'30X20','price'=>475000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>1,'is_active'=>1,'status'=>'available'],
+            ['id'=>2,'site_number'=>'04','title'=>'Kanthale, Agbopura 85 - Junction','location'=>'Kanthale / Agbopura','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>2,'is_active'=>1,'status'=>'available'],
+            ['id'=>3,'site_number'=>'05','title'=>'Habarana Roundabout - Site 1','location'=>'Habarana','size'=>'30X20','price'=>750000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>3,'is_active'=>1,'status'=>'available'],
+            ['id'=>4,'site_number'=>'06','title'=>'Habarana - Site 2','location'=>'Habarana','size'=>'30X20','price'=>490000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>4,'is_active'=>1,'status'=>'available'],
+            ['id'=>5,'site_number'=>'07','title'=>'Sigiriya - Audangawa','location'=>'Sigiriya / Audangawa','size'=>'30X20','price'=>475000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>5,'is_active'=>1,'status'=>'available'],
+            ['id'=>6,'site_number'=>'08','title'=>'Trincomalee - Roundabout Site 1','location'=>'Trincomalee','size'=>'30X20','price'=>850000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>6,'is_active'=>1,'status'=>'available'],
+            ['id'=>7,'site_number'=>'09','title'=>'Trincomalee - Roundabout Site 2','location'=>'Trincomalee','size'=>'30X20','price'=>850000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>7,'is_active'=>1,'status'=>'available'],
+            ['id'=>8,'site_number'=>'11','title'=>'Morawaka, Nelumdeniya','location'=>'Morawaka / Nelumdeniya','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>8,'is_active'=>1,'status'=>'available'],
+            ['id'=>9,'site_number'=>'13','title'=>'Anuradapura Jayanthi Mawath (Near Bikku University)','location'=>'Anuradhapura','size'=>'30X20','price'=>950000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>9,'is_active'=>1,'status'=>'available'],
+            ['id'=>10,'site_number'=>'14','title'=>'Kadawatha','location'=>'Kadawatha','size'=>'30X20','price'=>750000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>10,'is_active'=>1,'status'=>'available'],
+            ['id'=>11,'site_number'=>'15','title'=>'Wewaldeniya - Koragasmankada','location'=>'Wewaldeniya','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>11,'is_active'=>1,'status'=>'available'],
+            ['id'=>12,'site_number'=>'17','title'=>'Kappalthurei - Trincomalee Road','location'=>'Kappalthurei','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>12,'is_active'=>1,'status'=>'available'],
+            ['id'=>13,'site_number'=>'18','title'=>'Eheliyagoda Road, Minnana, Gataheththa','location'=>'Eheliyagoda / Minnana','size'=>'30X20','price'=>590000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>13,'is_active'=>1,'status'=>'available'],
+            ['id'=>14,'site_number'=>'21','title'=>'Bawilgamuwa, Pothuhera','location'=>'Bawilgamuwa / Pothuhera','size'=>'30X20','price'=>650000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>14,'is_active'=>1,'status'=>'available'],
+            ['id'=>15,'site_number'=>'22','title'=>'Near Peliyagoda Highway Exit','location'=>'Peliyagoda','size'=>'30X20','price'=>1500000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>15,'is_active'=>1,'status'=>'available'],
+            ['id'=>16,'site_number'=>'23','title'=>'Pasyala - Muruthawela','location'=>'Pasyala / Muruthawela','size'=>'30X20','price'=>475000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>16,'is_active'=>1,'status'=>'available'],
         ];
 
         $jsonLocations = [];
@@ -71,8 +70,11 @@ $locations = getHoardingLocations();
 
         <?php if (count($locations) > 0): ?>
         <div class="hoarding-grid">
-            <?php foreach ($locations as $i => $loc): ?>
-            <div class="hoarding-card" data-aos="fade-up" data-aos-delay="<?php echo min($i * 60, 400); ?>">
+            <?php foreach ($locations as $i => $loc): 
+                $status = strtolower($loc['status'] ?? 'available');
+                $isAvailable = ($status === 'available');
+            ?>
+            <div class="hoarding-card <?php echo $isAvailable ? '' : 'not-available'; ?>" data-aos="fade-up" data-aos-delay="<?php echo min($i * 60, 400); ?>">
                 <div class="hoarding-image">
                     <?php if (!empty($loc['image'])): ?>
                         <img src="<?php echo ASSETS_URL; ?>/uploads/<?php echo htmlspecialchars($loc['image']); ?>" 
@@ -85,7 +87,17 @@ $locations = getHoardingLocations();
                             <span>Site <?php echo htmlspecialchars($loc['site_number']); ?></span>
                         </div>
                     <?php endif; ?>
+
                     <div class="site-badge">SITE <?php echo htmlspecialchars($loc['site_number']); ?></div>
+
+                    <!-- Available / Not Available Badge -->
+                    <div class="status-badge <?php echo $isAvailable ? 'status-available' : 'status-not-available'; ?>">
+                        <?php if ($isAvailable): ?>
+                            <i class="fas fa-check-circle"></i> Available
+                        <?php else: ?>
+                            <i class="fas fa-times-circle"></i> Not Available
+                        <?php endif; ?>
+                    </div>
                 </div>
 
                 <div class="hoarding-body">
@@ -106,9 +118,15 @@ $locations = getHoardingLocations();
                         <?php endif; ?>
                     </div>
 
-                    <a href="contact.php?subject=Hoarding%20Site%20<?php echo urlencode($loc['site_number']); ?>" class="btn btn-primary btn-sm">
-                        <i class="fas fa-phone-alt"></i> Inquire Now
-                    </a>
+                    <?php if ($isAvailable): ?>
+                        <a href="contact.php?subject=Hoarding%20Site%20<?php echo urlencode($loc['site_number']); ?>%20-%20Available" class="btn btn-primary btn-sm">
+                            <i class="fas fa-phone-alt"></i> Inquire Now
+                        </a>
+                    <?php else: ?>
+                        <button class="btn btn-disabled btn-sm" disabled>
+                            <i class="fas fa-ban"></i> Currently Booked
+                        </button>
+                    <?php endif; ?>
                 </div>
             </div>
             <?php endforeach; ?>
@@ -155,6 +173,13 @@ $locations = getHoardingLocations();
     transform: translateY(-8px);
     box-shadow: 0 16px 40px rgba(245, 197, 24, 0.15);
 }
+.hoarding-card.not-available {
+    opacity: 0.85;
+}
+.hoarding-card.not-available:hover {
+    border-color: #555;
+    box-shadow: none;
+}
 .hoarding-image {
     position: relative;
     width: 100%;
@@ -184,6 +209,7 @@ $locations = getHoardingLocations();
 }
 .hoarding-placeholder i { font-size: 3rem; color: #333; }
 .hoarding-placeholder span { font-size: 0.9rem; color: #555; }
+
 .site-badge {
     position: absolute;
     top: 14px;
@@ -195,7 +221,33 @@ $locations = getHoardingLocations();
     padding: 6px 12px;
     border-radius: 6px;
     letter-spacing: 0.5px;
+    z-index: 2;
 }
+
+/* Status Badge */
+.status-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.status-available {
+    background: rgba(46, 204, 113, 0.9);
+    color: #fff;
+}
+.status-not-available {
+    background: rgba(231, 76, 60, 0.9);
+    color: #fff;
+}
+
 .hoarding-body {
     padding: 22px 20px 24px;
     display: flex;
@@ -259,6 +311,13 @@ $locations = getHoardingLocations();
     text-align: center;
 }
 .btn-sm { padding: 0.7em 1.2em; font-size: 0.9rem; }
+.btn-disabled {
+    background: #333 !important;
+    color: #777 !important;
+    border: none;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
 .empty-state {
     text-align: center;
     padding: 80px 20px;

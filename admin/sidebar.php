@@ -16,6 +16,10 @@
         <a href="manage_gallery.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'manage_gallery.php' ? 'active' : ''; ?>">
             <i class="fas fa-images"></i> Gallery
         </a>
+        <a href="hoarding.php" class="nav-item <?php echo basename($_SERVER['PHP_SELF']) === 'hoarding.php' || basename($_SERVER['PHP_SELF']) === 'hoarding-edit.php' ? 'active' : ''; ?>">
+    <i class="fas fa-ad"></i>
+    <span>Hoarding Sites</span>
+</a>
         <a href="messages.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'messages.php' ? 'active' : ''; ?>">
             <i class="fas fa-envelope"></i> Messages
         </a>
@@ -29,12 +33,6 @@
             <i class="fas fa-sign-out-alt"></i> Logout
         </a>
 
-
-         <a href="hoarding_content.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'hoarding_content.php' ? 'active' : ''; ?>">
-            <i class="fas fa-envelope"></i> Messages
-        </a>
-         <a href="hoarding.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'hoarding.php' ? 'active' : ''; ?>">
-            <i class="fas fa-envelope"></i> Messages
-        </a>
+     
     </nav>
 </aside>
