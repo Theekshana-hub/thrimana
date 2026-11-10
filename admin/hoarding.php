@@ -1,31 +1,37 @@
 <?php
-require_once 'auth_check.php';
+$page_title = 'Hoarding Locations';
+$page_desc  = 'Island Wide 30x20 Hoarding Sites - Premium Billboard Advertising across Sri Lanka | Thrimana Advertising';
 
 // ========== HOARDING FUNCTIONS ==========
 if (!function_exists('getHoardingLocations')) {
     function getHoardingLocations($limit = null, $activeOnly = true) {
         $defaultLocations = [
-            ['id'=>1,'site_number'=>'01','title'=>'Polgahawela Town','location'=>'Polgahawela','size'=>'30X20','price'=>475000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>1,'is_active'=>1],
-            ['id'=>2,'site_number'=>'04','title'=>'Kanthale, Agbopura 85 - Junction','location'=>'Kanthale / Agbopura','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>2,'is_active'=>1],
-            ['id'=>3,'site_number'=>'05','title'=>'Habarana Roundabout - Site 1','location'=>'Habarana','size'=>'30X20','price'=>750000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>3,'is_active'=>1],
-            ['id'=>4,'site_number'=>'06','title'=>'Habarana - Site 2','location'=>'Habarana','size'=>'30X20','price'=>490000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>4,'is_active'=>1],
-            ['id'=>5,'site_number'=>'07','title'=>'Sigiriya - Audangawa','location'=>'Sigiriya / Audangawa','size'=>'30X20','price'=>475000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>5,'is_active'=>1],
-            ['id'=>6,'site_number'=>'08','title'=>'Trincomalee - Roundabout Site 1','location'=>'Trincomalee','size'=>'30X20','price'=>850000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>6,'is_active'=>1],
-            ['id'=>7,'site_number'=>'09','title'=>'Trincomalee - Roundabout Site 2','location'=>'Trincomalee','size'=>'30X20','price'=>850000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>7,'is_active'=>1],
-            ['id'=>8,'site_number'=>'11','title'=>'Morawaka, Nelumdeniya','location'=>'Morawaka / Nelumdeniya','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>8,'is_active'=>1],
-            ['id'=>9,'site_number'=>'13','title'=>'Anuradapura Jayanthi Mawath (Near Bikku University)','location'=>'Anuradhapura','size'=>'30X20','price'=>950000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>9,'is_active'=>1],
-            ['id'=>10,'site_number'=>'14','title'=>'Kadawatha','location'=>'Kadawatha','size'=>'30X20','price'=>750000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>10,'is_active'=>1],
-            ['id'=>11,'site_number'=>'15','title'=>'Wewaldeniya - Koragasmankada','location'=>'Wewaldeniya','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>11,'is_active'=>1],
-            ['id'=>12,'site_number'=>'17','title'=>'Kappalthurei - Trincomalee Road','location'=>'Kappalthurei','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>12,'is_active'=>1],
-            ['id'=>13,'site_number'=>'18','title'=>'Eheliyagoda Road, Minnana, Gataheththa','location'=>'Eheliyagoda / Minnana','size'=>'30X20','price'=>590000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>13,'is_active'=>1],
-            ['id'=>14,'site_number'=>'21','title'=>'Bawilgamuwa, Pothuhera','location'=>'Bawilgamuwa / Pothuhera','size'=>'30X20','price'=>650000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>14,'is_active'=>1],
-            ['id'=>15,'site_number'=>'22','title'=>'Near Peliyagoda Highway Exit','location'=>'Peliyagoda','size'=>'30X20','price'=>1500000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>15,'is_active'=>1],
-            ['id'=>16,'site_number'=>'23','title'=>'Pasyala - Muruthawela','location'=>'Pasyala / Muruthawela','size'=>'30X20','price'=>475000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>16,'is_active'=>1],
+            ['id'=>1,'site_number'=>'01','title'=>'Polgahawela Town','location'=>'Polgahawela','size'=>'30X20','price'=>475000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>1,'is_active'=>1,'status'=>'available'],
+            ['id'=>2,'site_number'=>'04','title'=>'Kanthale, Agbopura 85 - Junction','location'=>'Kanthale / Agbopura','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>2,'is_active'=>1,'status'=>'available'],
+            ['id'=>3,'site_number'=>'05','title'=>'Habarana Roundabout - Site 1','location'=>'Habarana','size'=>'30X20','price'=>750000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>3,'is_active'=>1,'status'=>'available'],
+            ['id'=>4,'site_number'=>'06','title'=>'Habarana - Site 2','location'=>'Habarana','size'=>'30X20','price'=>490000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>4,'is_active'=>1,'status'=>'available'],
+            ['id'=>5,'site_number'=>'07','title'=>'Sigiriya - Audangawa','location'=>'Sigiriya / Audangawa','size'=>'30X20','price'=>475000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>5,'is_active'=>1,'status'=>'available'],
+            ['id'=>6,'site_number'=>'08','title'=>'Trincomalee - Roundabout Site 1','location'=>'Trincomalee','size'=>'30X20','price'=>850000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>6,'is_active'=>1,'status'=>'available'],
+            ['id'=>7,'site_number'=>'09','title'=>'Trincomalee - Roundabout Site 2','location'=>'Trincomalee','size'=>'30X20','price'=>850000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>7,'is_active'=>1,'status'=>'available'],
+            ['id'=>8,'site_number'=>'11','title'=>'Morawaka, Nelumdeniya','location'=>'Morawaka / Nelumdeniya','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>8,'is_active'=>1,'status'=>'available'],
+            ['id'=>9,'site_number'=>'13','title'=>'Anuradapura Jayanthi Mawath (Near Bikku University)','location'=>'Anuradhapura','size'=>'30X20','price'=>950000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>9,'is_active'=>1,'status'=>'available'],
+            ['id'=>10,'site_number'=>'14','title'=>'Kadawatha','location'=>'Kadawatha','size'=>'30X20','price'=>750000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>10,'is_active'=>1,'status'=>'available'],
+            ['id'=>11,'site_number'=>'15','title'=>'Wewaldeniya - Koragasmankada','location'=>'Wewaldeniya','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>11,'is_active'=>1,'status'=>'available'],
+            ['id'=>12,'site_number'=>'17','title'=>'Kappalthurei - Trincomalee Road','location'=>'Kappalthurei','size'=>'30X20','price'=>550000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>12,'is_active'=>1,'status'=>'available'],
+            ['id'=>13,'site_number'=>'18','title'=>'Eheliyagoda Road, Minnana, Gataheththa','location'=>'Eheliyagoda / Minnana','size'=>'30X20','price'=>590000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>13,'is_active'=>1,'status'=>'available'],
+            ['id'=>14,'site_number'=>'21','title'=>'Bawilgamuwa, Pothuhera','location'=>'Bawilgamuwa / Pothuhera','size'=>'30X20','price'=>650000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>14,'is_active'=>1,'status'=>'available'],
+            ['id'=>15,'site_number'=>'22','title'=>'Near Peliyagoda Highway Exit','location'=>'Peliyagoda','size'=>'30X20','price'=>1500000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>15,'is_active'=>1,'status'=>'available'],
+            ['id'=>16,'site_number'=>'23','title'=>'Pasyala - Muruthawela','location'=>'Pasyala / Muruthawela','size'=>'30X20','price'=>475000,'price_note'=>'with ground rental, RDA charges, municipal council tax, digital printed flex','image'=>'','description'=>'','sort_order'=>16,'is_active'=>1,'status'=>'available'],
         ];
 
         $jsonLocations = [];
+        $jsonFile = __DIR__ . '/data/hoarding.json';
+
         if (function_exists('readJson')) {
             $jsonLocations = readJson('hoarding.json');
+            if (!is_array($jsonLocations)) $jsonLocations = [];
+        } elseif (file_exists($jsonFile)) {
+            $jsonLocations = json_decode(file_get_contents($jsonFile), true);
             if (!is_array($jsonLocations)) $jsonLocations = [];
         }
 
@@ -49,190 +55,291 @@ if (!function_exists('getHoardingLocations')) {
     }
 }
 
-if (!function_exists('saveHoardingLocations')) {
-    function saveHoardingLocations($data) {
-        $data = array_values($data);
-        if (function_exists('writeJson')) {
-            return writeJson('hoarding.json', $data);
-        }
-        $file = __DIR__ . '/../data/hoarding.json';
-        return file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
-    }
-}
+require_once 'includes/header.php';
 
-$success = '';
-$error = '';
-
-// Delete
-if (isset($_GET['delete']) && is_numeric($_GET['delete'])) {
-    $id = (int)$_GET['delete'];
-    $all = getHoardingLocations(null, false);
-    $all = array_filter($all, function($item) use ($id) {
-        return (int)($item['id'] ?? 0) !== $id;
-    });
-    saveHoardingLocations($all);
-    $success = 'Location deleted successfully.';
-}
-
-// Toggle
-if (isset($_GET['toggle']) && is_numeric($_GET['toggle'])) {
-    $id = (int)$_GET['toggle'];
-    $all = getHoardingLocations(null, false);
-    foreach ($all as &$item) {
-        if ((int)($item['id'] ?? 0) === $id) {
-            $item['is_active'] = empty($item['is_active']) ? 1 : 0;
-            break;
-        }
-    }
-    unset($item);
-    saveHoardingLocations($all);
-    $success = 'Status updated.';
-}
-
-if (isset($_GET['msg']) && $_GET['msg'] === 'saved') {
-    $success = 'Location saved successfully.';
-}
-
-$locations = getHoardingLocations(null, false);
+$locations = getHoardingLocations();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hoarding Locations | Thrimana Admin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="admin.css">
-    <style>
-        .hoarding-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        .hoarding-table th, .hoarding-table td { padding: 12px 14px; text-align: left; border-bottom: 1px solid #222; vertical-align: middle; }
-        .hoarding-table th { color: #f5b800; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.4px; }
-        .hoarding-table td { color: #ccc; font-size: 0.9rem; }
-        .hoarding-table tr:hover td { background: #161616; }
-        .thumb {
-            width: 70px;
-            height: 50px;
-            object-fit: cover;
-            border-radius: 6px;
-            border: 1px solid #333;
-            background: #111;
-        }
-        .thumb-placeholder {
-            width: 70px;
-            height: 50px;
-            border-radius: 6px;
-            background: #1a1a1a;
-            border: 1px solid #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #444;
-            font-size: 1.2rem;
-        }
-        .badge { display: inline-block; padding: 4px 10px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; }
-        .badge-active { background: rgba(46,204,113,0.15); color: #2ecc71; }
-        .badge-inactive { background: rgba(231,76,60,0.15); color: #e74c3c; }
-        .price-col { color: #f5b800; font-weight: 600; white-space: nowrap; }
-        .actions { display: flex; gap: 8px; flex-wrap: wrap; }
-        .top-actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
-        @media (max-width: 768px) {
-            .hoarding-table, .hoarding-table thead, .hoarding-table tbody, .hoarding-table th, .hoarding-table td, .hoarding-table tr { display: block; }
-            .hoarding-table thead { display: none; }
-            .hoarding-table tr { background: #151515; margin-bottom: 12px; border-radius: 10px; padding: 12px; border: 1px solid #222; }
-            .hoarding-table td { border: none; padding: 6px 0; }
-            .hoarding-table td:before { content: attr(data-label); font-weight: 600; color: #f5b800; display: block; font-size: 0.72rem; margin-bottom: 2px; }
-        }
-    </style>
-</head>
-<body>
-    <div class="admin-layout">
-        <?php include 'sidebar.php'; ?>
-        <main class="admin-main">
-            <header class="admin-header">
-                <h1>Hoarding Locations</h1>
-                <a href="logout.php" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
-            </header>
 
-            <?php if ($success): ?>
-                <div class="alert alert-success"><?php echo htmlspecialchars($success); ?></div>
-            <?php endif; ?>
-            <?php if ($error): ?>
-                <div class="alert" style="background:rgba(230,57,70,0.15);border:1px solid rgba(230,57,70,0.3);color:#ff8a80;"><?php echo htmlspecialchars($error); ?></div>
-            <?php endif; ?>
+<section class="section" style="padding-top: 120px;">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <span class="tag">Outdoor Advertising</span>
+            <h2>Island Wide Hoarding Sites</h2>
+            <p>Premium 30′ × 20′ billboard locations across Sri Lanka. High-traffic sites with excellent visibility.</p>
+        </div>
 
-            <div class="admin-card">
-                <div class="top-actions">
-                    <h2><i class="fas fa-ad"></i> All Sites (<?php echo count($locations); ?>)</h2>
-                    <a href="hoarding-edit.php" class="btn btn-primary"><i class="fas fa-plus"></i> Add New Location</a>
+        <?php if (count($locations) > 0): ?>
+        <div class="hoarding-grid">
+            <?php foreach ($locations as $i => $loc): 
+                $status = strtolower($loc['status'] ?? 'available');
+                $isAvailable = ($status === 'available');
+                $imgPath = '';
+                if (!empty($loc['image'])) {
+                    $imgPath = ASSETS_URL . '/uploads/' . $loc['image'];
+                }
+            ?>
+            <div class="hoarding-card <?php echo $isAvailable ? '' : 'not-available'; ?>" data-aos="fade-up" data-aos-delay="<?php echo min($i * 60, 400); ?>">
+                <div class="hoarding-image">
+                    <?php if ($imgPath): ?>
+                        <img src="<?php echo htmlspecialchars($imgPath); ?>" 
+                             alt="<?php echo htmlspecialchars($loc['title']); ?>"
+                             loading="lazy"
+                             onerror="this.onerror=null; this.src='<?php echo ASSETS_URL; ?>/images/logo.png'; this.classList.add('img-fallback');">
+                    <?php else: ?>
+                        <div class="hoarding-placeholder">
+                            <i class="fas fa-ad"></i>
+                            <span>Site <?php echo htmlspecialchars($loc['site_number']); ?></span>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="site-badge">SITE <?php echo htmlspecialchars($loc['site_number']); ?></div>
+
+                    <div class="status-badge <?php echo $isAvailable ? 'status-available' : 'status-not-available'; ?>">
+                        <?php if ($isAvailable): ?>
+                            <i class="fas fa-check-circle"></i> Available
+                        <?php else: ?>
+                            <i class="fas fa-times-circle"></i> Not Available
+                        <?php endif; ?>
+                    </div>
                 </div>
 
-                <?php if (empty($locations)): ?>
-                    <p class="empty">No locations yet. Click "Add New Location" to create one.</p>
-                <?php else: ?>
-                <div style="overflow-x:auto;">
-                    <table class="hoarding-table">
-                        <thead>
-                            <tr>
-                                <th>Image</th>
-                                <th>Site #</th>
-                                <th>Title</th>
-                                <th>Location</th>
-                                <th>Size</th>
-                                <th>Price (1 Year)</th>
-                                <th>Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php foreach ($locations as $loc): ?>
-                            <tr>
-                                <td data-label="Image">
-                                    <?php if (!empty($loc['image'])): ?>
-                                        <img src="../assets/uploads/<?php echo htmlspecialchars($loc['image']); ?>" 
-                                             class="thumb" 
-                                             alt=""
-                                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                        <div class="thumb-placeholder" style="display:none;"><i class="fas fa-image"></i></div>
-                                    <?php else: ?>
-                                        <div class="thumb-placeholder"><i class="fas fa-image"></i></div>
-                                    <?php endif; ?>
-                                </td>
-                                <td data-label="Site #"><strong><?php echo htmlspecialchars($loc['site_number']); ?></strong></td>
-                                <td data-label="Title"><?php echo htmlspecialchars($loc['title']); ?></td>
-                                <td data-label="Location"><?php echo htmlspecialchars($loc['location'] ?? '-'); ?></td>
-                                <td data-label="Size"><?php echo htmlspecialchars($loc['size'] ?? '30X20'); ?></td>
-                                <td data-label="Price" class="price-col">Rs. <?php echo number_format((float)$loc['price'], 0); ?></td>
-                                <td data-label="Status">
-                                    <a href="?toggle=<?php echo (int)$loc['id']; ?>">
-                                        <span class="badge <?php echo !empty($loc['is_active']) ? 'badge-active' : 'badge-inactive'; ?>">
-                                            <?php echo !empty($loc['is_active']) ? 'Active' : 'Hidden'; ?>
-                                        </span>
-                                    </a>
-                                </td>
-                                <td data-label="Actions">
-                                    <div class="actions">
-                                        <a href="hoarding-edit.php?id=<?php echo (int)$loc['id']; ?>" class="btn btn-sm btn-outline"><i class="fas fa-edit"></i> Edit</a>
-                                        <a href="?delete=<?php echo (int)$loc['id']; ?>" class="btn btn-sm btn-danger" onclick="return confirm('Delete this location?');"><i class="fas fa-trash"></i></a>
-                                    </div>
-                                </td>
-                                <td data-label="Availability">
-    <?php 
-    $st = strtolower($loc['status'] ?? 'available');
-    if ($st === 'available'): ?>
-        <span class="badge badge-active">Available</span>
-    <?php else: ?>
-        <span class="badge badge-inactive">Not Available</span>
-    <?php endif; ?>
-</td>
-                            </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
+                <div class="hoarding-body">
+                    <h3><?php echo htmlspecialchars($loc['title']); ?></h3>
+                    <?php if (!empty($loc['location'])): ?>
+                        <p class="location"><i class="fas fa-map-marker-alt"></i> <?php echo htmlspecialchars($loc['location']); ?></p>
+                    <?php endif; ?>
+                    
+                    <div class="hoarding-meta">
+                        <span class="size"><i class="fas fa-expand"></i> <?php echo htmlspecialchars($loc['size'] ?: '30X20'); ?></span>
+                    </div>
+
+                    <div class="price-box">
+                        <div class="price-label">One Year Lease</div>
+                        <div class="price">Rs. <?php echo number_format((float)$loc['price'], 0); ?></div>
+                        <?php if (!empty($loc['price_note'])): ?>
+                            <div class="price-note"><?php echo htmlspecialchars($loc['price_note']); ?></div>
+                        <?php endif; ?>
+                    </div>
+
+                    <?php if ($isAvailable): ?>
+                        <a href="contact.php?subject=Hoarding%20Site%20<?php echo urlencode($loc['site_number']); ?>%20-%20Available" class="btn btn-primary btn-sm">
+                            <i class="fas fa-phone-alt"></i> Inquire Now
+                        </a>
+                    <?php else: ?>
+                        <button class="btn btn-disabled btn-sm" disabled>
+                            <i class="fas fa-ban"></i> Currently Booked
+                        </button>
+                    <?php endif; ?>
                 </div>
-                <?php endif; ?>
             </div>
-        </main>
+            <?php endforeach; ?>
+        </div>
+        <?php else: ?>
+            <div class="empty-state" data-aos="fade-up">
+                <i class="fas fa-ad"></i>
+                <h3>No locations available at the moment</h3>
+                <p>Please check back later or contact us for available sites.</p>
+                <a href="contact.php" class="btn btn-primary">Contact Us</a>
+            </div>
+        <?php endif; ?>
     </div>
-</body>
-</html>
+</section>
+
+<section class="cta-section">
+    <div class="container" data-aos="zoom-in">
+        <h2>Ready to Advertise Island Wide?</h2>
+        <p>Contact us today for the best available sites and special package rates.</p>
+        <a href="contact.php" class="btn btn-primary">
+            <i class="fas fa-paper-plane"></i> Get a Quote
+        </a>
+    </div>
+</section>
+
+<style>
+.hoarding-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+    margin-top: 20px;
+}
+.hoarding-card {
+    background: #151515;
+    border: 1px solid #252525;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.35s ease;
+    display: flex;
+    flex-direction: column;
+}
+.hoarding-card:hover {
+    border-color: #f5c518;
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(245, 197, 24, 0.15);
+}
+.hoarding-card.not-available {
+    opacity: 0.85;
+}
+.hoarding-card.not-available:hover {
+    border-color: #555;
+    box-shadow: none;
+}
+.hoarding-image {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    background: #111;
+    overflow: hidden;
+}
+.hoarding-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.hoarding-image img.img-fallback {
+    object-fit: contain;
+    padding: 30px;
+    background: #1a1a1a;
+}
+.hoarding-card:hover .hoarding-image img {
+    transform: scale(1.06);
+}
+.hoarding-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(145deg, #1a1a1a, #111);
+    color: #444;
+}
+.hoarding-placeholder i { font-size: 3rem; color: #333; }
+.hoarding-placeholder span { font-size: 0.9rem; color: #555; }
+
+.site-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: linear-gradient(135deg, #f5b800, #d4a000);
+    color: #111;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+.status-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.status-available {
+    background: rgba(46, 204, 113, 0.9);
+    color: #fff;
+}
+.status-not-available {
+    background: rgba(231, 76, 60, 0.9);
+    color: #fff;
+}
+
+.hoarding-body {
+    padding: 22px 20px 24px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.hoarding-body h3 {
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 0 0 8px 0;
+    line-height: 1.35;
+}
+.hoarding-body .location {
+    color: #888;
+    font-size: 0.88rem;
+    margin: 0 0 12px 0;
+}
+.hoarding-body .location i { color: #f5c518; margin-right: 6px; }
+.hoarding-meta { margin-bottom: 16px; }
+.hoarding-meta .size {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #1f1f1f;
+    color: #ccc;
+    font-size: 0.82rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+}
+.hoarding-meta .size i { color: #f5c518; font-size: 0.75rem; }
+.price-box {
+    background: #0d0d0d;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+}
+.price-label {
+    font-size: 0.75rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+.price {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: #f5c518;
+    line-height: 1.2;
+}
+.price-note {
+    font-size: 0.72rem;
+    color: #666;
+    margin-top: 6px;
+    line-height: 1.4;
+}
+.hoarding-body .btn {
+    margin-top: auto;
+    width: 100%;
+    text-align: center;
+}
+.btn-sm { padding: 0.7em 1.2em; font-size: 0.9rem; }
+.btn-disabled {
+    background: #333 !important;
+    color: #777 !important;
+    border: none;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: #666;
+}
+.empty-state i { font-size: 4rem; color: #333; margin-bottom: 20px; }
+.empty-state h3 { color: #aaa; margin-bottom: 10px; }
+
+@media (max-width: 768px) {
+    .hoarding-grid { grid-template-columns: 1fr; gap: 20px; }
+    .hoarding-image { height: 200px; }
+}
+@media (min-width: 769px) and (max-width: 1100px) {
+    .hoarding-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+
+<?php require_once 'includes/footer.php'; ?>
