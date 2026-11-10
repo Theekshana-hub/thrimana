@@ -11,7 +11,8 @@
         "description": "",
         "sort_order": 1,
         "is_active": 1,
-        "status": "available"
+        "status": "available",
+        "image2": "hoarding_image2_1794284953_238.png"
     },
     {
         "id": 2,
@@ -25,7 +26,8 @@
         "description": "",
         "sort_order": 2,
         "is_active": 1,
-        "status": "available"
+        "status": "available",
+        "image2": "hoarding_image2_1794286235_351.png"
     },
     {
         "id": 3,
@@ -39,7 +41,8 @@
         "description": "",
         "sort_order": 3,
         "is_active": 1,
-        "status": "available"
+        "status": "available",
+        "image2": "hoarding_image2_1794288533_996.png"
     },
     {
         "id": 4,
